@@ -2,7 +2,7 @@ import { cityTimezones, getCurrentDateByTimezone } from '../../utils/date.util';
 import { test, expect } from '../../fixtures/test.fixture';
 import citiesData from '../../test-data/cities.json';
 
-test.describe('Time.is', () => {
+test.describe('Time.is', { tag: '@web' }, () => {
   test.describe.configure({ mode: 'default' });
   for (const city of citiesData.cities) {
     test(`Verify city, date and time of ${city}`, async ({ page, timePage }) => {

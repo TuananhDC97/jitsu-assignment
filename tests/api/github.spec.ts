@@ -1,6 +1,6 @@
 import { test, expect } from '../../fixtures/test.fixture';
 
-test.describe('SeleniumHQ Organization Tests', () => {
+test.describe('SeleniumHQ Organization API Tests', { tag: '@api' }, () => {
   test('Should fetch repositories successfully', async ({ repos }) => {
     expect(repos.length).toBeGreaterThan(0);
     console.log('Fetched Repositories:', repos.length);
