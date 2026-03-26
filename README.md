@@ -3,12 +3,10 @@
 - [Tech Stack](#tech-stack)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Configuration](#configuration)
 - [Running Tests](#running-tests)
 - [Project Structure](#project-structure)
-- [Design Decisions](#design-decisions)
 - [Test Coverage](#test-coverage)
-
+- [Reporting](#reporting)
 ---
 
 ## Tech Stack
@@ -45,6 +43,43 @@ npx playwright install --with-deps
 
 ---
 
+## Running Tests
+
+### Run all tests (all browsers)
+```bash
+npm test
+```
+
+### Run only Web UI tests (Task I)
+```bash
+npm run test:web
+```
+
+### Run only API tests (Task II)
+```bash
+npm run test:api
+```
+
+### Run in headed mode (visible browser)
+```bash
+npm run test:headed
+```
+
+### Run a specific test file
+```bash
+npx playwright test tests/web/time-is.spec.ts
+npx playwright test tests/api/github-api.spec.ts
+```
+
+### Run on a specific browser
+```bash
+npx playwright test --project=chromium
+npx playwright test --project=firefox
+npx playwright test --project=webkit
+```
+
+---
+
 ## Project Structure
 
 ```
@@ -76,7 +111,7 @@ qa-automation-challenge/
 
 ---
 
-## 🧪 Test Coverage
+## Test Coverage
 
 ### ✅ Task I – Web UI (time.is)
 - Search for a city
@@ -92,7 +127,7 @@ qa-automation-challenge/
 - Identify most watched repository
 - Validate responses with assertions
 
-## 📊 Reporting
+## Reporting
 ```bash
 npx playwright show-report
 ```
