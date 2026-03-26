@@ -8,7 +8,7 @@ test.describe('Time.is', () => {
     test(`Verify city, date and time of ${city}`, async ({ page, timePage }) => {
       await test.step('Open Time.is homepage', async () => {
         await page.goto('/', {
-          waitUntil: 'domcontentloaded', // infinity loading by ads
+          waitUntil: 'domcontentloaded', // avoid infinity loading by ads
         });
       });
 

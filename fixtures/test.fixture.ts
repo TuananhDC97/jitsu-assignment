@@ -1,5 +1,5 @@
 import { test as base, request } from '@playwright/test';
-import { TimePage } from '../pages/TimePage';
+import { TimePage } from '../pages/timePage';
 
 type MyFixtures = {
   storageStatePath?: string;

@@ -1,36 +1,78 @@
+## Table of Contents
+
+- [Tech Stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running Tests](#running-tests)
+- [Project Structure](#project-structure)
+- [Design Decisions](#design-decisions)
+- [Test Coverage](#test-coverage)
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
-- Playwright
-- TypeScript
-- Node.js
+| Tool | Version | Purpose |
+|---|---|---|
+| [Playwright](https://playwright.dev/) | ^1.43.0 | Browser automation & API testing |
+| TypeScript | ^5.4.0 | Type-safe test authoring |
+| Node.js | ≥ 18 | Runtime |
 
 ---
 
-## ✨ Key Design Decisions
+## Prerequisites
 
-### 1. Page Object Model (POM)
-- Encapsulates UI logic
-- Improves readability and maintainability
+- **Node.js** ≥ 18 ([download](https://nodejs.org/))
+- **npm** ≥ 9 (bundled with Node.js)
+- A **GitHub Personal Access Token** *(optional, but recommended to avoid API rate limiting)*
 
-### 2. API Client Layer
-- Separates API logic from tests
-- Reusable across test cases
+---
 
-### 3. Custom Fixtures
-- Centralized setup logic
-- Supports authentication reuse
+## Installation
 
-### 4. Session Reuse (Storage State)
-- Avoid repeated login
-- Faster test execution
-- Reduces flakiness
+```bash
+# 1. Clone the repository
+git clone https://github.com/<your-username>/qa-automation-challenge.git
+cd qa-automation-challenge
 
-### 5. Stable Assertions
-- Using Playwright auto-wait (`expect(locator)`)
-- Avoid hard waits
+# 2. Install Node dependencies
+npm install
+
+# 3. Install Playwright browsers
+npx playwright install --with-deps
+```
+
+---
+
+## Project Structure
+
+```
+qa-automation-challenge/
+│
+├── pages/                          # Page Object Models (POM)
+│   └── timePage.ts             # time.is website – all locators & actions
+│
+├── tests/
+│   ├── web/
+│   │   └── time.spec.ts         # Task I – Web UI tests
+│   └── api/
+│       └── github.spec.ts      # Task II – GitHub API tests
+│
+├── utils/
+│   └── date-time-helpers.ts        # Time format validation & date utilities
+|
+├── api/
+│   ├── githubClient.ts        # Reusable GitHub API wrapper
+│
+├── test-data/
+│   └── cities.json                # Centralised test data
+│
+├── playwright.config.ts            # Playwright configuration (browsers, timeouts, reporters)
+├── tsconfig.json                   # TypeScript compiler options
+├── .gitignore
+└── README.md
+```
 
 ---
 
@@ -49,33 +91,6 @@
 - Sort repositories by last updated
 - Identify most watched repository
 - Validate responses with assertions
-
----
-
-## 🚀 Setup Instructions
-
-```bash
-npm install
-
-npx playwright install
-```
-
-## ▶️ Run Tests
-
-Run all tests
-```bash
-npx playwright test
-```
-
-Run specific test
-```bash
-npx playwright test tests/web/time.spec.ts
-```
-
-Run in headed mode
-```bash
-npx playwright test --headed
-```
 
 ## 📊 Reporting
 ```bash

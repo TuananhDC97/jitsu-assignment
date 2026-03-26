@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { GitHubClient } from '../../api/GitHubClient';
+import { GitHubClient } from '../../api/githubClient';
 
 test('Validate SeleniumHQ organization data', async ({ request }) => {
   const client = new GitHubClient(request);
